@@ -9,8 +9,7 @@ const WeatherBox = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const API_KEY = process.env.REACT_APP_OWM_KEY;
-  console.log('API_KEY:', API_KEY);
-  console.log('API_KEY:', process.env.REACT_APP_OWM_KEY);
+ 
 
   const handleCityChange = useCallback((cityName) => {
     setIsLoading(true);
