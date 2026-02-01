@@ -8,12 +8,15 @@ const WeatherBox = props => {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const API_KEY = process.env.REACT_APP_OWM_KEY;
+  console.log('API_KEY:', API_KEY);
+  console.log('API_KEY:', process.env.REACT_APP_OWM_KEY);
 
   const handleCityChange = useCallback((cityName) => {
     setIsLoading(true);
     setError(null);
   
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f5244ad3250ee8b865befddb626d4a5a&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
       .then((res) => {
         if (res.status === 404) {
           throw new Error('CITY_NOT_FOUND');
